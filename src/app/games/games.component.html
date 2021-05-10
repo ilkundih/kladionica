@@ -1,0 +1,45 @@
+<div>
+       <ul *ngFor="let location of locations">
+              <li *ngFor="let league of location.leagues">
+                     <h1> {{league.name}} </h1>
+                     
+                            <table style="margin-bottom:20px" *ngFor="let eventGroup of league.eventDateGroups">
+                                   <thead>
+                                          <tr>
+                                                 <th scope="colgroup" [attr.colspan]="3" class="header">
+                                                        {{eventGroup.date | date: 'd MMM'}}</th>
+                                                        <th *ngFor="let pick of getPicksByGroup(eventGroup)">{{pick}}</th>
+                                                        <!-- <th>1</th>
+                                                        <th>x</th>
+                                                        <th>2</th> -->
+
+                                          </tr>
+                                      
+                                   </thead>
+                                   <tbody>
+                                          <tr *ngFor="let event of eventGroup.events">
+                                                 <td *ngFor="let participant of event.fixture.participants">
+                                                        {{participant.name}}</td>
+                                                 <td>
+                                                        {{event.fixture.startDate | date: 'h:mm'}}
+                                                 </td>
+                                                 <td  *ngFor="let pick of getSortedPicks(event)">
+                                                       <button (click)="handleTicketClick(event,pick.odds, pick.name)">{{pick.odds}}</button></td>
+                                          </tr>
+
+                                   </tbody>
+                            </table>
+              </li>
+
+
+       </ul>
+
+
+       <div class="ticket">
+              <ul *ngFor="let ticket of ticketList">
+                     <li *ngFor="let participant of ticket.participants">{{participant.name}} </li>
+                     <li>{{ticket.pick}}</li>
+                     <li>{{ticket.odd}}</li>
+              </ul>
+       </div>
+</div>
