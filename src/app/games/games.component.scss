@@ -10,12 +10,53 @@ table , td, th  {
   
   
   .header{
-    width: 500px;
+    width: 60%;
     border: 1px solid grey;
     border-collapse: collapse;
     padding: 10px 20px 10px 20px ;
     }
 
-  .ticket {
+.main { 
+    width: 800px;
+    margin: 0 auto;
+}
+.ticket  {
+    border-radius: 5px;
+    width: 200px;
+    height: auto;
+    background: rgb(197, 197, 197);
+    border:1px solid grey;
     float: right;
-  }
+}
+
+.list  {
+    width: 600px;
+    background: #ffffff;
+    height: 400px;
+    margin-right: 200px;
+}
+
+.ticket h3{
+  padding-left: 20px;
+}
+
+.ticket ul{
+  columns: 2;
+  border: 1px solid grey;
+}
+
+.ticket label{
+  margin: 20px 0px 10px 20px;
+}
+
+.amount {
+  padding: 10px;
+}
+
+.amount input{
+  border-radius: 5px;
+}
+button {
+  border: 2px solid rgb(128, 128, 128);
+  border-radius: 3px;
+}

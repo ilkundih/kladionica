@@ -1,4 +1,4 @@
-import { EventDateGroups } from './eventDateGroups';
+import { EventDateGroups } from './EventDateGroups';
 import { Model } from './models/model';
 
 export class Leagues extends Model{

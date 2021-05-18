@@ -14,7 +14,7 @@ import { Ticket } from '../models/ticket';
 })
 export class GamesComponent implements OnInit {
 
-  public locations: Locations[];
+  locations: Locations[];
   ticketList: Array<Ticket> = [];
 
   constructor(private gamesService: GamesService) { }
@@ -79,6 +79,8 @@ export class GamesComponent implements OnInit {
     this.ticketList = this.ticketList.filter((ticket : Ticket)=> ticket.eventId !== newTicket.eventId);
 
     console.log(this.ticketList);
+
+    
     
   }
 
@@ -93,7 +95,17 @@ export class GamesComponent implements OnInit {
     return markets.find(market => { return market.marketId === id })
   }
 
+  getTotalOdds(): any{
+    if(!this.ticketList.length){
+      return 0;
+    }
+    return this.ticketList.reduce(((accumulator,Ticket) => accumulator*Ticket.odd),1).toFixed(2);
+  }
+
+ 
 
 
+   
+ 
 
-}
+  }
