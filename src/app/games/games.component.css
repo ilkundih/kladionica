@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+.container{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.pickName{
+  text-align: center;
+}
+
+.pickButton{
+  text-align: center;
+  margin:auto;
+}
+
+.form-control{
+  margin-bottom: 10px;
+}
+
+.alert{
+  color: black;
+  overflow: hidden;
+  max-height: 90%;
+  width: 300px;
+  position: fixed;
+  z-index: 1000;
+  bottom: -5px;
+  right: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.pickContainer{
+  max-height: 650px;
+  overflow-y: scroll;
+}
+
+.totalOdds{
+  margin: 5px 5px 0px 5px;
+}
+
+.profitOutput{
+  margin: 5px 5px 0px 5px;
+}
+
+.list-participant{
+  font-weight: bold;
+}
+
+.table-custom{
+  table-layout: fixed;
+}
+
+.pick-btn{
+  width: 55px;
+}
+
+@media screen and (max-width: 700px) {
+  .game-time{
+    column-width: 50%;
+  }
+
+  .pick-btn{
+    width: auto;
+    font-size: smaller;
+  }
+}
+
+.collapse-button1{
+  opacity: 70%;
+  bottom: 12px;
+  right: 15px;
+  position:fixed;
+}
+
+.collapse-button2{
+  opacity: 50%;
+  top: 5px;
+  right: 5px;
+  position: absolute;
+}
+
+.navbar{
+  background: hsla(0, 0%, 0%, 1);
+  background: linear-gradient(180deg, hsla(0, 0%, 0%, 1) 0%, hsla(185, 75%, 78%, 1) 100%);
+  background: -moz-linear-gradient(180deg, hsla(0, 0%, 0%, 1) 0%, hsla(185, 75%, 78%, 1) 100%);
+  background: -webkit-linear-gradient(180deg, hsla(0, 0%, 0%, 1) 0%, hsla(185, 75%, 78%, 1) 100%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  
+}
+
+.titleHeading{
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  margin: 10px auto;
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  
+}
+
+.controls{
+  margin: auto;
+  padding-top: 10px;
+  position: relative;
+}

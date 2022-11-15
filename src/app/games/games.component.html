@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar fixed-top navbar-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#"><h3 class="titleHeading">{{title}}</h3></a>
+                  <div class="search-league">
+                    <input class="form-control" type="text" name="search" [(ngModel)]="searchLeague" autocomplete="off" placeholder="Search for a league">
+                    </div>
+                </div>
+              </nav>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div *ngFor="let location of locations" class="accordion" id="accordionBasic">
+                        <div *ngFor="let league of location.leagues | filter:searchLeague" class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="true" aria-controls="collapseOne">
+                            {{league.name}}
+                            </button>
+                        </h2>
+                        <div class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionBasic">
+                            <div class="accordion-body">
+                                <div class="search-league">
+                                    <input class="form-control" type="text" name="search" [(ngModel)]="searchTeam" autocomplete="off" placeholder="Search for a team by its name">
+                                  </div>
+                                <table class="table table-sm table-custom" *ngFor="let eventGroup of league.eventDateGroups">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" colspan="5">{{eventGroup.date | date: 'd MMM'}}</th>
+                                            <th scope="col" class="pickName" *ngFor="let pick of getPicksByGroup(eventGroup)">{{pick}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let event of eventGroup.events | filter:searchTeam">
+                                            <td class="game-time">{{event.fixture.startDate | date: 'hh:mm'}}</td>
+                                            <th scope="row" colspan="2" *ngFor="let participant of event.fixture.participants">{{participant.name}}</th>
+                                            <td class="pickButton" *ngFor="let pick of getSortedPicks(event)">
+                                                <button class="btn btn-primary pick-btn" (click)="handleTicketClick(event,pick.odds, pick.name)">{{pick.odds}}</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <button id="collapseBtn" class="btn btn-dark collapse-button1" (click)="collapseTicket()">Ticket</button>
+                    <div [hidden]="isShowTicket" class="alert alert-light">
+                        <h3>Ticket</h3>
+                        <button id="collapseBtn" class="btn btn-dark btn-sm collapse-button2" (click)="collapseTicket()">Collapse</button>
+                        <div class="pickContainer">
+                            <ul class="list-inline" *ngFor="let ticket of ticketList">
+                                <li class="list-inline-item list-participant" *ngFor="let participant of ticket.participants">{{participant.name}} </li>
+                                <li class="list-group-item">Pick: {{ticket.pick}}</li>
+                                <li class="list-group-item">Odd: {{ticket.odd}}</li>
+                                <button class="badge bg-danger" (click)="deletePick(ticket)">Delete</button>
+                            </ul>
+                        </div>
+                        <div class="controls">
+                            <div class="amount">
+                                <input class="form-control" type="number" placeholder="Bet amount" #betAmount>
+                                <button class="btn btn-primary" (click)="getTotalProfit()">Calculate profit</button>
+                            </div>
+                            <label class="badge bg-secondary">Total odds:</label>
+                            <label class="totalOdds">{{getTotalOdds()}}</label><br />
+                            <label class="badge bg-secondary">Total profit:</label>
+                            <label class="profitOutput">{{getTotalProfit() | number: '1.2-2'}} kn</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
