@@ -63,6 +63,7 @@
                                 <button class="badge bg-danger" (click)="deletePick(ticket)">Delete</button>
                             </ul>
                         </div>
+
                         <div class="controls">
                             <div class="amount">
                                 <input class="form-control" type="number" placeholder="Bet amount" #betAmount>
@@ -71,23 +72,9 @@
                             <label class="badge bg-secondary">Total odds:</label>
                             <label class="totalOdds">{{getTotalOdds()}}</label><br />
                             <label class="badge bg-secondary">Total profit:</label>
-                            
-                            <!--label>{{getTotalOdds() * betAmount.value | number: '1.2-2' }}</label-->
                             <label class="profitOutput">{{getTotalProfit() | number: '1.2-2'}} kn</label>
                         </div>
                     </div>
-
-
-
-
-
-
-                    <!--ul class="list-group" *ngFor="let location of locations">
-                        <li class="list-group-item" *ngFor="let league of location.leagues">
-                            <h2>{{league.name}}</h2>
-
-                        </li>
-                    </ul-->
                 </div>
             </div>
         </div>
