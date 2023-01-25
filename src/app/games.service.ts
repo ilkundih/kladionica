@@ -20,7 +20,9 @@ export class GamesService {
 
   constructor(private http: HttpClient) { }
 
-  private url = 'https://sportdataprovider.stage-volcano.com/api/public/prematch/SportEvents?SportId=1&LocationId=243&timezone=-120&clientType=MobileWebConsumer&lang=en';
+  // private url = 'https://sportdataprovider.stage-volcano.com/api/public/prematch/SportEvents?SportId=1&LocationId=243&timezone=-120&clientType=MobileWebConsumer&lang=en';
+
+  private url = '../assets/data/games.json';
 
   getLocations(): Observable<Locations[]> {
     return this.http.get<Locations[]>(this.url).pipe(map((response: any) => {
