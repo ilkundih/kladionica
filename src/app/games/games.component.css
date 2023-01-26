@@ -26,7 +26,7 @@
   z-index: 1000;
   bottom: -5px;
   right: 10px;
-  box-shadow: rgba(0, 247, 255, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .pickContainer{
@@ -80,11 +80,8 @@
 }
 
 .navbar{
-  background: rgb(138, 163, 137);
-  background: linear-gradient(45deg, rgb(138, 163, 137) 0%, hsla(214, 100%, 75%, 1) 100%);
-  background: -moz-linear-gradient(45deg, rgb(138, 163, 137) 0%, hsla(214, 100%, 75%, 1) 100%);
-  background: -webkit-linear-gradient(45deg, rgb(138, 163, 137) 0%, hsla(214, 100%, 75%, 1) 100%);
-  box-shadow: rgba(0, 247, 255, 0.35) 0px 5px 15px;
+  background-color: rgb(212, 212, 212);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   
 }
 

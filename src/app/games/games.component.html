@@ -11,10 +11,9 @@
                     <input class="form-control" type="text" name="search" [(ngModel)]="searchLeague" autocomplete="off" placeholder="Search for a league">
                     </div>
                 </div>
-              </nav>
+            </nav>
             
             <div class="row">
-                
                 <div class="col-xs-8">
                     <div *ngFor="let location of locations" class="accordion" id="accordionBasic">
                         <div *ngFor="let league of location.leagues | filter:searchLeague" class="accordion-item">
